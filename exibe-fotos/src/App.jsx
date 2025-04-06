@@ -1,12 +1,25 @@
 import React from 'react'
 
-const App = () => {
-  return (
-    <div>
-      <h1>Exibe Fotos</h1>
-      <i className='pi pi-search'></i>
-    </div>
-  )
-}
+class App  extends React.Component {
 
+  onBuscaRealizada = (termo) => {
+    console.log(termo)
+  }
+  render () {
+    return (
+      <div className='grid justify-content-center align-items-center'>
+        <div className='col-12 '>
+  
+          <h1>Exibe uma lista de...</h1>
+  
+        </div>
+        <div className='col-12 '>
+  
+          <Busca dica='buscar algo... ' />
+        </div>
+  
+      </div>
+    )
+  }
+}
 export default App
