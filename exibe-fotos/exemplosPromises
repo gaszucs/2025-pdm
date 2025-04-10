@@ -1,0 +1,25 @@
+// const somaDemorada = () =>{
+//     let ac = 0;
+//     for (let i = 0; i < 1e9; i++){
+//         ac += i;
+//     }
+// }
+
+async function fatorial(n){
+    let ac = 1
+    for(let i = 2; i <= n; i++)
+        ac *= i;
+    return ac;
+}
+
+const chamadaComAsyncAwait = async () => {
+    try {
+        const f1 = await fatorial(5);
+        console.log(f1); // 120
+    }
+    catch (error) {
+        console.error('Erro:', error);
+    }
+}
+
+fatorial(5).then(res => console.log(res)) // 120
