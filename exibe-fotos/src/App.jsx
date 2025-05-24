@@ -1,7 +1,6 @@
 import React from 'react'
 import Busca from './Components/Busca'
 import env from 'react-dotenv'
-//import { createClient } from 'pexels'
 import PexelsClient from './utils/PexelsClient'
 import ListaImagens from './Components/ListaImagens'
 import PexelsLogo from './Components/PexelsLogo'
@@ -13,14 +12,11 @@ class App  extends React.Component {
     photos: []
   }
 
-  componentDidMount () {
-    // this.pexelsClient = createClient(env.PEXELS_KEY)
-  }
   onBuscaRealizada = (termo) => {
     this.pexelsClient.get('/search', {
       params: {
         query: termo,
-        per_page: 10
+        per_page: 15
       }
     })
       .then((result) =>
@@ -58,7 +54,11 @@ class App  extends React.Component {
           onBuscaRealizada={this.onBuscaRealizada}
         </div>
         <div className='col-12'>
-          <ListaImagens photos={this.state.photos} />
+          <div className="grid">
+
+            <ListaImagens imgStyle = {"col-12 md:col-6 lg:col-4 xl:col-3"} photos={this.state.photos} />
+
+          </div>
         </div>
   
       </div>
