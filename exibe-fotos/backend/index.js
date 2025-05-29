@@ -1,9 +1,11 @@
 require('dotenv').config();
 const axios = require('axios');
+const cors = require('cors');
 const express = require('express');
 const { default: PexelsClient } = require('../src/utils/PexelsClient');
 const app = express();
 
+app.use(cors())
 const pexelsClient =  axios.create({
     baseURL: 'https://api.pexels.com/v1',
     headers: {
